@@ -105,7 +105,7 @@ def format_valid_combos_with_tabulate(data, headers=("Condition", "Number", "Val
     return output
 
 
-def format_all_combos_with_tabulate(data, headers=("Condition Combination")):
+def format_all_combos_with_tabulate(data, headers=["Condition Combination"]):
     table = []
     for condition in data:
         table.append([condition])

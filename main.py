@@ -65,7 +65,7 @@ def add_mortality_rate(table: DataFrame) -> DataFrame:
     return table
 
 def validate_against_table(subset_list: list, indices: list):
-    query = utils.build_query_from_subset_list_and_indices(subset_list, indices, DIMENSION_INDEX_MAP)
+    query = utils.build_query_from_subset_list_indices_and_index_map(subset_list, indices, DIMENSION_INDEX_MAP)
     result = JOINED.query(query)
     size = result.shape[0]
     if size >= SAMPLE_MIN:
@@ -125,7 +125,7 @@ if __name__ == "__main__":
     all_combos, all_indices = utils.generate_combinations_and_indices(dimension_distinct_value_lists, validate_function=validate_always_true)
     ALL_RESULTS = []
     for i in range(len(all_combos)):
-        query = utils.build_query_from_subset_list_and_indices(all_combos[i], all_indices[i], DIMENSION_INDEX_MAP)
+        query = utils.build_query_from_subset_list_indices_and_index_map(all_combos[i], all_indices[i], DIMENSION_INDEX_MAP)
         ALL_RESULTS.append(query)
     output = utils.format_all_combos_with_tabulate(ALL_RESULTS)
     print(output)
