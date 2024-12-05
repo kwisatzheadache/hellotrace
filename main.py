@@ -4,6 +4,7 @@ import pandas as pd
 from pandas import DataFrame
 import utils
 from enum import Enum
+from pathlib import Path
 
 """
 1. Read the files
@@ -81,6 +82,13 @@ def validate_always_true(subset_list: list, indices: list):
 if __name__ == "__main__":
     print("Reading Files")
 
+    try:
+        dir = "./output"
+        output_dir = Path(dir)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        print(f"Creating output directory")
+    except Exception as e:
+        print(f"Output Directory already exists to create directory")
     # Read the tables and join them
     women = pd.read_csv(WOMEN_CSV)
     household = pd.read_csv(HOUSEHOLD_CSV)
