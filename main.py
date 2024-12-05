@@ -35,8 +35,8 @@ class KeyDimension(Enum):
     SONS_WHO_HAVE_DIED = "Sons who have died"
     DAUGHTERS_WHO_HAVE_DIED = "Daughters who have died"
 
-HOUSEHOLD_CSV = "./data/household.csv"
-WOMEN_CSV = "./data/women.csv"
+HOUSEHOLD_CSV = "./household.csv"
+WOMEN_CSV = "./women.csv"
 
 
 def join_tables(household: DataFrame, women: DataFrame)->DataFrame:
